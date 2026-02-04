@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form</title>
+    </head>
+
+    <center>
+    <h2>Welcome to Seemon's karaoke feedback form!</h2>
+    </center>
+    
+    <hr>
+    <br>
+    
+    <body>
+        <form action="index.php" method="POST" enctype="multipart/form-data">
+            <label for="Create a username">Create a Username:</label>
+            <input type="text" placeholder="Username" id="Create a username" minlength="6" maxlength="10"  required>
+            
+            <br><br>
+            
+            <label for="Create a Password">Create a Password:</label>
+            <input type="password" placeholder="Password" id="Create a Password" minlength="6" maxlength="10"  required>
+            
+            <br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Spongebob@gmail.com">
+
+            <br><br>
+
+            <label for="Phone">Phone:</label>
+            <input type="tel" id="Phone" placeholder="+62" pattern="[0-9]{5}-[0-9]{4}-[0-9]{4}">
+            
+            <br><br>
+
+            <label for="bday">Birthday:</label>
+            <input type="date" id="bday">
+
+            <br><br>
+
+            <label for="gender">Gender:</label>
+            
+            <br>
+            <label for="Male">Male</label>
+            <input type="radio" id="Male" value="Male" name="title">
+            <label for="Female">Female</label>
+            <input type="radio" id="Female" value="Female" name="title">
+            <br><br>
+
+            <label for="Quantity">How many bugs have you found?</label>
+            <input type="number" id="Quantity" min="" max="99" value="0">     
+            
+            <br><br>
+
+            <label for="proofs">Submit your proofs here:</label>
+            <br>
+            <input type="file" id="proofs" accept="image/png, image/jpeg, image/jpg">
+            
+            <br><br>
+
+            <label for="feedback">Feedback:</label> 
+            <br>
+            <textarea name="feedback box" id="feedback" placeholder="Type your feedback here!"></textarea>
+
+            <br><br>
+
+            
+            <!-- <label for="donate">Donate me through:</label>
+            <br>
+            <select name="donation" id="donate">
+                <option value="Visa">Visa</option>
+                <option value="QRIS">QRIS</option>
+                <option value="Dana">Dana</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+            </select>
+
+            <br><br>
+            
+            <label for="confirm">Payment Confirmation</label>
+            <input type="checkbox" id="confirm">
+            
+            <br><br> -->
+            <a href="index.html">
+                <input type="submit" style="color: blue;">
+            </a>
+
+            <br><br>
+
+            <a href="index.html">
+                <button style="color: blue;">
+                    Homepage
+                </button>
+            </a>
+        </form>
+    </body>    
+</html>
