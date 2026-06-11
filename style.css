@@ -1,0 +1,188 @@
+/*
+   RESET & BASE
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  src: url(fonts/justiceoutital.ttf);
+  font-family: hotlinemiami;
+}
+
+body {
+  background-color: #1a0010;
+  color: white;
+  overflow: hidden;
+}
+
+/*
+   HERO / VIDEO BG
+ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Dark overlay — matches HM's moody pink-black tint */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 0, 35, 0.72);
+  z-index: 1;
+}
+
+/* 
+   SCANLINES — CRT feel
+ */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 2px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  pointer-events: none;
+}
+
+/*
+   HERO CONTENT
+ */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+  padding: 2rem;
+}
+
+/* 
+   TITLE — Горячая линия style
+ */
+.game-title {
+  font-family: hotlinemiami, "Impact", sans-serif;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 1;
+  color: #00e5e5;
+  text-shadow:
+    4px 4px 0px #005f5f,
+    0 0 30px #00e5e5aa,
+    0 0 60px #00e5e555;
+  letter-spacing: 0.04em;
+  animation: flicker 6s infinite;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: hotlinemiami, "Impact", sans-serif;
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  color: #ff4da6;
+  letter-spacing: 0.25em;
+  text-transform: lowercase;
+  text-shadow: 0 0 12px #ff4da688;
+  margin-bottom: 1.8rem;
+}
+
+/* 
+   MENU LIST
+ */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+  list-style: none;
+}
+
+.menu-item {
+  font-family: hotlinemiami, "Impact", sans-serif;
+  font-size: clamp(1.3rem, 3.2vw, 2rem);
+  color: #fffbe6;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25em 0.6em;
+  transition: color 0.12s, text-shadow 0.12s, transform 0.1s;
+  display: block;
+  text-shadow: 2px 2px 0 #00000088;
+}
+
+.menu-item:hover,
+.menu-item:focus {
+  color: #ff4da6;
+  text-shadow:
+    0 0 14px #ff4da6cc,
+    2px 2px 0 #000;
+  transform: scaleX(1.04);
+  outline: none;
+}
+
+/* Feedback link looks slightly different — dimmer, like "Exit Game" */
+.menu-item--secondary {
+  color: #cc9ab0;
+  font-size: clamp(1rem, 2.4vw, 1.5rem);
+  margin-top: 0.6em;
+}
+
+.menu-item--secondary:hover,
+.menu-item--secondary:focus {
+  color: #ff4da6;
+}
+
+/* =====================
+   FLICKER ANIMATION
+   ===================== */
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.85; }
+  97% { opacity: 1; }
+  98% { opacity: 0.75; }
+  99% { opacity: 1; }
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 480px) {
+  .game-title {
+    font-size: clamp(2.4rem, 13vw, 4rem);
+  }
+
+  .menu-item {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-title {
+    animation: none;
+  }
+}
