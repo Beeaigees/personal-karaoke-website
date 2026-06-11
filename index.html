@@ -1,56 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html>
-    <head>
-        <title>My second website</title>
-        <link rel="icon" type="image/png" href="images/favicon.png">
-    </head>
-
-    <body>
-        <center>
-        <h1>    
-        Seemon's Karaoke Website       
-        </h1>
-
-        <hr>
-        <br>
-
-        <div>
-
-        <a href="passwontleavemybed.html">
-        1. JOJI - Past Won't Leave My Bed Lyrics
-        </a>
-
-        <br><br>
-        
-        <a href="passwontleavemybed.html">
-        2. JOJI - Past Won't Leave My Bed Lyrics
-        </a>
-
-        <br><br>
-        
-        <a href="passwontleavemybed.html">
-        3. JOJI - Past Won't Leave My Bed Lyrics
-        </a>
-
-        </div>
-        
-        <br><br>
-        <a href="form.html">
-            <button style="color: blue;">Feedback</button> 
-        </a>
-        </center>
-    </body>
-    
-    <!-- <body>
-    <center>
-        <h1>This is Crossbone Gundam</h1> 
-        <img src="images/arsenal-base-mecha.gif" alt="Crossbone Gundam in an action" height="200">
-    </center>
-    </body> -->
-    
-    
-=======
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -65,7 +13,7 @@
       <video autoplay muted loop playsinline class="bg-video">
         <source src="videos/81676-576083179.mp4" type="video/mp4" />
       </video>
-      <audio autoplay loop playsinline>
+      <audio id="bg-music" loop>
         <source src="songs/Sun Araw - Horse Steppin' [wa3qqfgp1Ns].mp3" type="audio/mpeg" />
       </audio>
 
@@ -86,8 +34,13 @@
       </div>
     </div>
     <script>
-      document.querySelector('audio').volume = 0.3;
-  </script>
+      const music = document.getElementById('bg-music');
+      music.volume = 0.5;
+
+      // Play begitu user pertama kali klik/sentuh di mana saja
+      document.addEventListener('click', () => {
+        if (music.paused) music.play();
+      }, { once: true });
+    </script>
   </body>
->>>>>>> ca27201 (temp updates)
 </html>
