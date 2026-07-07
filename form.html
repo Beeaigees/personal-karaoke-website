@@ -3,94 +3,91 @@
     <head>
         <title>Form</title>
     </head>
-
-    <center>
-    <h2>Welcome to Seemon's karaoke feedback form!</h2>
-    </center>
-    
-    <hr>
-    <br>
     
     <body>
-        <form action="index.php" method="POST" enctype="multipart/form-data">
-            <label for="Create a username">Create a Username:</label>
-            <input type="text" placeholder="Username" id="Create a username" minlength="6" maxlength="10"  required>
+            <center>
+
+                <h2>Welcome to Seemon's karaoke feedback form!</h2>
             
-            <br><br>
+                <form action="index.php" method="POST" enctype="multipart/form-data">
+                    <label for="createAUsername">Create a Username:</label>
+                    <input name="username" type="text" placeholder="Username" id="CreateAUsername" minlength="6" maxlength="10"  required>
+                    
+                    <br><br>
+                    
+                    <label for="email">Email:</label>
+                    <input name="email" type="email" id="email" placeholder="Spongebob@gmail.com" minlength="3" maxlength="254" required>
+
+                    <br><br>
+
+                    <label for="quantity">How many bugs have you found?</label>
+                    <input name="bugsQuantity" type="number" id="quantity" min="0" max="99" value="0" required >     
+                    
+                    <br><br>
+
+                    <label for="proofs">Submit your proofs here (optional)</label>
+                    <br>
+                    <input name="bugProofs" type="file" id="proofs" accept="image/png, image/jpeg, image/jpg">
+                    
+                    <br><br>
+
+                    <label for="feedback">Feedback:</label> 
+                    <br>       
+
+                    <!-- name gak boleh ada spasi dia sama kayak for dan id -->
+                    <textarea name="feedbackBox" id="feedback" placeholder="Type your feedback here!" required></textarea>
+
+                    <br><br>
+
+                    <a href="index.html">
+                        <input type="submit" style="color: blue;">
+                    </a>
+
+                    <br><br>
+
+                    <a href="index.html">
+                        <button style="color: blue;">
+                            Homepage
+                        </button>
+                    </a>
+                </form>
+            </center>
+        <script>
+            document.getElementById('CreateAUsername').addEventListener('input', function() {
+            localStorage.setItem('simpanUsername', this.value);
+            });
+
+            document.getElementById('email').addEventListener('input', function() {
+            localStorage.setItem('simpanEmail', this.value);
+            });
+
+            document.getElementById('quantity').addEventListener('input', function() {
+            localStorage.setItem('simpanQuantity', this.value);
+            });
             
-            <label for="Create a Password">Create a Password:</label>
-            <input type="password" placeholder="Password" id="Create a Password" minlength="6" maxlength="10"  required>
-            
-            <br><br>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Spongebob@gmail.com">
+            document.getElementById('feedback').addEventListener('input', function() {
+            localStorage.setItem('simpanFeedback', this.value);
+            });
 
-            <br><br>
+            const simpanUsername = localStorage.getItem("simpanUsername");
+            if (simpanUsername) {
+                document.getElementById("CreateAUsername").value = simpanUsername;
+            }
 
-            <label for="Phone">Phone:</label>
-            <input type="tel" id="Phone" placeholder="+62" pattern="[0-9]{5}-[0-9]{4}-[0-9]{4}">
-            
-            <br><br>
+            const simpanEmail = localStorage.getItem("simpanEmail");
+            if (simpanEmail) {
+                document.getElementById("email").value = simpanEmail;
+            }
 
-            <label for="bday">Birthday:</label>
-            <input type="date" id="bday">
+            const simpanQuantity = localStorage.getItem("simpanQuantity");
+            if (simpanQuantity) {
+                document.getElementById("quantity").value = simpanQuantity;
+            }
 
-            <br><br>
-
-            <label for="gender">Gender:</label>
-            
-            <br>
-            <label for="Male">Male</label>
-            <input type="radio" id="Male" value="Male" name="title">
-            <label for="Female">Female</label>
-            <input type="radio" id="Female" value="Female" name="title">
-            <br><br>
-
-            <label for="Quantity">How many bugs have you found?</label>
-            <input type="number" id="Quantity" min="" max="99" value="0">     
-            
-            <br><br>
-
-            <label for="proofs">Submit your proofs here:</label>
-            <br>
-            <input type="file" id="proofs" accept="image/png, image/jpeg, image/jpg">
-            
-            <br><br>
-
-            <label for="feedback">Feedback:</label> 
-            <br>
-            <textarea name="feedback box" id="feedback" placeholder="Type your feedback here!"></textarea>
-
-            <br><br>
-
-            
-            <!-- <label for="donate">Donate me through:</label>
-            <br>
-            <select name="donation" id="donate">
-                <option value="Visa">Visa</option>
-                <option value="QRIS">QRIS</option>
-                <option value="Dana">Dana</option>
-                <option value="Bank Transfer">Bank Transfer</option>
-            </select>
-
-            <br><br>
-            
-            <label for="confirm">Payment Confirmation</label>
-            <input type="checkbox" id="confirm">
-            
-            <br><br> -->
-            <a href="index.html">
-                <input type="submit" style="color: blue;">
-            </a>
-
-            <br><br>
-
-            <a href="index.html">
-                <button style="color: blue;">
-                    Homepage
-                </button>
-            </a>
-        </form>
+            const simpanFeedback = localStorage.getItem("simpanFeedback");
+            if (simpanFeedback) {
+                document.getElementById("feedback").value = simpanFeedback;
+            }
+        </script>
     </body>    
 </html>
