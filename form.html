@@ -9,7 +9,7 @@
 
                 <h2>Welcome to Seemon's karaoke feedback form!</h2>
             
-                <form action="index.php" method="POST" enctype="multipart/form-data">
+                <form enctype="multipart/form-data">
                     <label for="createAUsername">Create a Username:</label>
                     <input name="username" type="text" placeholder="Username" id="CreateAUsername" minlength="6" maxlength="10"  required>
                     
@@ -39,17 +39,14 @@
 
                     <br><br>
 
-                    <a href="index.html">
-                        <input type="submit" style="color: blue;">
-                    </a>
+                    
+                    <input type="submit">
+                    
 
                     <br><br>
 
-                    <a href="index.html">
-                        <button style="color: blue;">
-                            Homepage
-                        </button>
-                    </a>
+                    <a href="index.html">Homepage</a>
+
                 </form>
             </center>
         <script>
@@ -88,6 +85,10 @@
             if (simpanFeedback) {
                 document.getElementById("feedback").value = simpanFeedback;
             }
+
+            document.querySelector('form').addEventListener('submit', function() {
+            alert('Feedback berhasil dikirim, terima kasih!, silahkan click homepage untuk kembali');
+            });
         </script>
     </body>    
 </html>
